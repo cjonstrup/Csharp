@@ -8,7 +8,7 @@
     xmlns:propertyGrid="clr-namespace:PropertyGrid"
     x:Class="PropertyGrid.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="525" MouseMove="MainWindow_OnMouseMove">
+        Title="PropertyGrid" Height="550" Width="525" MouseMove="MainWindow_OnMouseMove">
     <Grid Name="Grid2">
         <StackPanel>
 
