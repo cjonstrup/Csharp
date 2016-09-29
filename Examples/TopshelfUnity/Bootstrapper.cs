@@ -1,4 +1,6 @@
-﻿using ConsoleApplication1.Provider.SmsService;
+﻿using ConsoleApplication1.Provider.MyLogger;
+using ConsoleApplication1.Provider.MyLogger.NLog;
+using ConsoleApplication1.Provider.SmsService;
 using ConsoleApplication1.Provider.SmsService.Mobility;
 using Microsoft.Practices.Unity;
 
@@ -27,6 +29,9 @@ namespace ConsoleApplication1
         {
             Container.RegisterInstance<ISms>(new MobilityProvider());
             Container.RegisterInstance<ISms>("Mock", new MobilityProviderMock());
+
+            Container.RegisterInstance<ILog>(new NLogProvider());
+
             Container.RegisterInstance(Container);
             Container.RegisterInstance(Container as UnityContainer);
 

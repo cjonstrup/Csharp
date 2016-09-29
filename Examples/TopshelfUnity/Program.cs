@@ -1,4 +1,5 @@
-﻿using ConsoleApplication1.Provider.SmsService;
+﻿using ConsoleApplication1.Provider.MyLogger;
+using ConsoleApplication1.Provider.SmsService;
 using Microsoft.Practices.Unity;
 using System;
 using System.Timers;
@@ -60,10 +61,15 @@ namespace ConsoleApplication1
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Console.WriteLine("It is {0} and all is well", DateTime.Now);
+            //Logger.Error("MyService error");
         }
 
         [Dependency]
         public ISms SmsService { set; get; }
+
+        [Dependency]
+        public ILog Logger { set; get; }
+        
 
         [Dependency]
         public UnityContainer Container { set; get; }
@@ -71,13 +77,13 @@ namespace ConsoleApplication1
         public void Start()
         {
             _timer.Start();
-            Console.WriteLine("start");
+            Logger.Info("MyService started");
         }
 
         public void Stop()
         {
             _timer.Stop();
-            Console.WriteLine("stop");
+            Logger.Info("MyService stoped");
         }
     }
 }
