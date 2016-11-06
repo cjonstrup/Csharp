@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfUnity", "Examples\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfQuartz", "Examples\TopshelfQuartz\TopshelfQuartz.csproj", "{18B14750-AF8C-46C9-8357-B4C85BE0F7D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitorService", "Examples\MonitorService\MonitorService.csproj", "{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{18B14750-AF8C-46C9-8357-B4C85BE0F7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B14750-AF8C-46C9-8357-B4C85BE0F7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18B14750-AF8C-46C9-8357-B4C85BE0F7D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +71,6 @@ Global
 		{19F96078-1206-4DB4-AD34-EC858BD20BF0} = {6493A61F-0433-44C1-AD84-734B23282C19}
 		{461A83D5-3A1D-4152-B743-0264FE511F89} = {6493A61F-0433-44C1-AD84-734B23282C19}
 		{18B14750-AF8C-46C9-8357-B4C85BE0F7D3} = {6493A61F-0433-44C1-AD84-734B23282C19}
+		{D2D9E8FA-5A99-4FBF-9515-EDDDF89304DC} = {6493A61F-0433-44C1-AD84-734B23282C19}
 	EndGlobalSection
 EndGlobal
