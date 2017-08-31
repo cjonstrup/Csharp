@@ -41,6 +41,7 @@
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Started}" Value="True">
                                     <Setter Property="FontWeight" Value="Bold" />
+                                    <Setter Property="Foreground" Value="Red" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
