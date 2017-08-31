@@ -14,8 +14,9 @@ namespace TimeLocker
         private System.Timers.Timer _timer;
         private DateTime _start;
         private TimeSpan _elapsedTimeSpan;
-        private bool _started;
+
         private int _todayCount;
+        private bool _started;
 
         public Job()
         {
@@ -28,7 +29,7 @@ namespace TimeLocker
 
         public void Start()
         {
-             _started = true;
+            Started = true;
              _start = DateTime.Now;
             _timer = new Timer();
             _timer.Interval = 1000;
@@ -36,6 +37,15 @@ namespace TimeLocker
             _timer.Start();
         }
 
+        public bool Started
+        {
+            get { return _started; }
+            set
+            {
+                _started = value;
+                OnPropertyChanged();
+            }
+        }
 
         public int TodayCount
         {
@@ -74,10 +84,11 @@ namespace TimeLocker
             }
 
             _timer?.Stop();
-            if (_started)
+            if (Started)
             {
                 WorkLog.Add(new Log() { Start = _start, Slut = DateTime.Now });
                 TodayCount = WorkLog.Count;
+                Started = false;
             }
         }
     }

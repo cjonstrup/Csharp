@@ -55,5 +55,17 @@ namespace TimeLocker
         {
             _vm.SelectedJob?.Stop();
         }
+
+        private void CommandManager_OnPreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (e.Command == DataGrid.DeleteCommand)
+            {
+                if (MessageBox.Show("Are you sure you want to delete?", "Please confirm.", MessageBoxButton.YesNo, MessageBoxImage.Information,MessageBoxResult.No) != MessageBoxResult.Yes)
+                {
+                    // Cancel Delete.
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }
