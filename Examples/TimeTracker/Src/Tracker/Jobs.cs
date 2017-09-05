@@ -1,17 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Timers;
-using System.Windows;
-using System.Windows.Threading;
 
 namespace TimeLocker
 {
     public class Job : BaseService
     {
-        private System.Timers.Timer _timer;
+        private Timer _timer;
         private DateTime _start;
         private TimeSpan _elapsedTimeSpan;
 
@@ -39,7 +34,7 @@ namespace TimeLocker
 
         public bool Started
         {
-            get { return _started; }
+            get => _started;
             set
             {
                 _started = value;
@@ -49,10 +44,7 @@ namespace TimeLocker
 
         public int TodayCount
         {
-            get
-            {
-                return _todayCount;
-            }
+            get => _todayCount;
             set
             {
                 _todayCount = value; 
@@ -60,10 +52,9 @@ namespace TimeLocker
             }
         }
 
-
         public TimeSpan ElapsedTimeSpan
         {
-            get { return _elapsedTimeSpan; }
+            get => _elapsedTimeSpan;
             set
             {
                 _elapsedTimeSpan = value;
@@ -90,15 +81,6 @@ namespace TimeLocker
                 TodayCount = WorkLog.Count;
                 Started = false;
             }
-        }
-    }
-
-    public class BaseService : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

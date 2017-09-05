@@ -12,9 +12,9 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Exit" />
-                </MenuItem>
-                <MenuItem Header="_About">
-                    <MenuItem Header="_WEBfm"  />
+                    <MenuItem Header="_Save" Click="MenuItem_OnClick"/>
+                    <MenuItem Header="_Open" Click ="MenuItemOpen_OnClick"/>
+                    <MenuItem Header="_Clear" Click ="MenuItemClear_OnClick"/>
                 </MenuItem>
             </Menu>
 
@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
 
 
-                <DataGrid AlternatingRowBackground="WhiteSmoke" CanUserSortColumns="True" AutoGenerateColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedJob, Mode=TwoWay}" SelectionMode="Single" Margin="0,0,0,10" CommandManager.PreviewExecuted="CommandManager_OnPreviewExecuted">
+                <DataGrid AlternatingRowBackground="WhiteSmoke" CanUserSortColumns="True" CanUserAddRows="True" AutoGenerateColumns="False" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedJob, Mode=TwoWay}" SelectionMode="Single" Margin="0,0,0,10" CommandManager.PreviewExecuted="CommandManager_OnPreviewExecuted">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridRow}">
                             <Style.Triggers>
@@ -52,12 +52,20 @@
 
 
 
-                        <DataGridTemplateColumn Header="Name" Width="90" IsReadOnly="True">
+                        <DataGridTemplateColumn SortMemberPath="Name"  CanUserSort="True" Header="Name" Width="90">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path=Name}"></TextBlock>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
+
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Path=Name, Mode=TwoWay}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+
+
                         </DataGridTemplateColumn>
 
                         <DataGridTemplateColumn Header="Work" Width="90" IsReadOnly="True">
@@ -91,10 +99,8 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding SelectedJob.Name}" VerticalAlignment="Top" Width="165"/>
-                <Button Content="Start" HorizontalAlignment="Left" Margin="10,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20"/>
-                <Button Content="Stop" HorizontalAlignment="Left" Margin="100,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="20"/>
+                <Button Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="20"/>
+                <Button Content="Stop" HorizontalAlignment="Left" Margin="103,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="20"/>
 
                 <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding SelectedJob.WorkLog}" SelectionMode="Single" Margin="206,10,10,10" CanUserAddRows="False" CommandManager.PreviewExecuted="CommandManager_OnPreviewExecuted">
                     <DataGrid.Columns>
@@ -109,7 +115,7 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Slut" Width="120" IsReadOnly="True">
+                        <DataGridTemplateColumn Header="End" Width="120" IsReadOnly="True">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Path=Slut,StringFormat=dd-MM-yyyy HH:mm:ss}"></TextBlock>
@@ -147,6 +153,7 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
+                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,75,0,0" Grid.Row="1" Click="Button_Click_2"/>
             </Grid>
         </DockPanel>
 
